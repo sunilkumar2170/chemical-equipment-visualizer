@@ -1,187 +1,115 @@
+Chemical Equipment Visualizer
 Hybrid Web + Desktop Application
+A full-stack hybrid application for visualizing, analyzing, and reporting chemical equipment parameters using a shared Django REST backend, React web dashboard, and PyQt5 desktop application.
 
-A full-stack hybrid application for visualizing, analyzing, and reporting chemical equipment parameters using a shared Django REST backend, a React web dashboard, and a PyQt5 desktop application.
-
-🚀 Project Overview
-
-This project allows users to upload a CSV file containing chemical equipment data such as:
-
-Equipment Name
-
-Equipment Type
-
-Flowrate
-
-Pressure
-
-Temperature
-
-The backend processes the data, computes analytics, and exposes APIs that are consumed by both Web and Desktop clients.
+🚀 Quick Demo
+Watch Demo Video
+demo link-https://www.loom.com/share/840fbfc58c9d42a4a1f9463ecf4a0b21
 
 
 
-React (Web)        PyQt5 (Desktop)
-     │                    │
-     └──── REST API ──────┘
-              │
-        Django + DRF
-              │
-           Pandas
+(Shows complete workflow: CSV upload → Backend processing → Web/Desktop visualization)
 
+📋 Features
+📂 CSV Upload (Web + Desktop) - Upload equipment data instantly
 
+📊 Interactive Charts - Flowrate, Pressure, Temperature visualizations
 
-🛠 Tech Stack
-Backend
-
-Django 4.2
-
-Django REST Framework
-
-Pandas
-
-SQLite
-
-Gunicorn
-
-Render (Deployment)
-
-Frontend (Web)
-
-React.js
-
-Chart.js
-
-Vercel (Deployment)
-
-Frontend (Desktop)
-
-
-
-
-
-Key Features
-
-📂 CSV Upload (Web + Desktop)
-
-📊 Interactive Charts & Graphs
-
-📋 Equipment Data Table
-
-📈 Summary Statistics
+📈 Real-time Analytics
 
 Total equipment count
 
-Average flowrate
+Average flowrate, pressure, temperature
 
-Average pressure
+🧾 PDF Reports - Download professional analytics reports
 
-Average temperature
+🔐 Admin Authentication - Secure data management
 
-🧾 PDF Report Generation
+🕓 Upload History - Track last 5 dataset uploads
 
-🔐 Authentication (Admin)
-
-🕓 Dataset History (last 5 uploads)
-
-
-
-
+🛠 Tech Stack
+text
+Frontend (Web)    → React.js + Chart.js + Vercel
+Frontend (Desktop)→ PyQt5 + Matplotlib
+Backend           → Django 4.2 + DRF + Pandas + SQLite + Render
+Deployment        → Shared REST API for both clients
+📁 Project Structure
+text
 chemical-equipment-visualizer/
-│
-├── backend/
+├── backend/                 # Django REST API
 │   ├── manage.py
 │   ├── requirements.txt
-│   ├── runtime.txt
-│   ├── analyticsapp/
-│   ├── api/
-│   └── backend/
-│
-├── frontend-web/
+│   └── analyticsapp/
+├── frontend-web/            # React Dashboard
 │   ├── src/
-│   ├── public/
 │   └── package.json
-│
-├── frontend-desktop/
+├── frontend-desktop/        # PyQt5 Desktop App
 │   ├── main.py
 │   └── requirements.txt
-│
 ├── README.md
-└── .gitignore
-
-
-
-Backend Setup (Local)
+└── equipment_data.csv       # Sample data
+🎯 Sample CSV Format
+text
+Equipment Name,Type,Flowrate,Pressure,Temperature
+HX-101,Heat Exchanger,250,15,180
+P-201,Pump,180,25,65
+V-301,Vessel,0,10,90
+C-401,Compressor,350,30,120
+🚀 Quick Setup (5 Minutes)
+Backend (Django API)
+bash
 cd backend
 python -m venv venv
-venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
+API Ready: http://127.0.0.1:8000/api/
 
-
-API will be available at:
-http://127.0.0.1:8000/api/
-
-
-
-Web Frontend Setup (Local)
+Web Frontend (React)
+bash
 cd frontend-web
 npm install
 npm run dev
+Web Ready: http://localhost:5173
 
-
-Desktop Application Setup
+Desktop App (PyQt5)
+bash
 cd frontend-desktop
 pip install -r requirements.txt
 python main.py
+🔗 Live Deployment Links
+text
+Backend API: https://chemical-visualizer-api.onrender.com/api/
+Web App:     https://chemical-visualizer-web.vercel.app/
+Desktop:     Download .exe from Releases
+📊 API Endpoints
+text
+GET  /api/analytics/          # Summary statistics + data
+POST /api/upload/             # CSV upload endpoint  
+GET  /api/history/            # Last 5 uploads
+GET  /api/export/pdf/         # PDF report download
+🐛 Troubleshooting
+Backend not starting? → Check Python 3.11 + pip install pandas==1.24.0
 
+CORS issues? → Backend auto-configured for localhost
 
-Sample CSV Format
-Equipment Name,Type,Flowrate,Pressure,Temperature
-Heat Exchanger HX-101,Heat Exchanger,250,15,180
-Centrifugal Pump P-201,Pump,180,25,65
+Charts not loading? → Backend API must be running first
 
+Desktop blank? → Check backend URL in main.py
 
-Deployment Notes
+🤝 Contributing
+Fork repository
 
-Backend uses Python 3.11 (via runtime.txt)
+Create feature branch (git checkout -b feature/AmazingFeature)
 
-Pandas & NumPy versions pinned for cloud compatibility
+Commit changes (git commit -m 'Add some AmazingFeature')
 
-Same REST API consumed by both Web & Desktop clients
+Push & Open PR
 
+📄 License
+MIT License - Free to use/modify/deploy anywhere!
 
-## 🎥 Demo Video
-
-A short demo video demonstrating the complete working of the project:
-
-🔗 https://www.loom.com/share/840fbfc58c9d42a4a1f9463ecf4a0b21
-
-
-The demo covers:
-- GitHub repository overview
-- Backend API functionality
-- Web application (CSV upload, charts, analytics)
-- Desktop application (PyQt5 interface and visualization)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-PyQt5
-
-Matplotlib
+👨‍💻 Author
+Sunil Kumar
+GitHub | LinkedIn
