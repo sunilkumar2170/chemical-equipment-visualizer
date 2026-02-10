@@ -1,0 +1,38 @@
+# =====================
+# Django / Python
+# =====================
+__pycache__/
+*.pyc
+*.pyo
+*.log
+db.sqlite3
+.env
+venv/
+.env/
+
+# Django media & static
+media/
+staticfiles/
+
+# =====================
+# React
+# =====================
+node_modules/
+dist/
+build/
+
+# =====================
+# PyQt / Desktop
+# =====================
+*.exe
+*.spec
+build/
+dist/
+
+# =====================
+# OS / IDE
+# =====================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
